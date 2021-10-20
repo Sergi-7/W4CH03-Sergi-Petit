@@ -1,8 +1,8 @@
 import Key from "../Key/Key";
 
 const Keyboard = ({ keyArray }) => {
-  const deleteNumber = (array) => {};
-  const addNumber = (num) => {};
+  /*const deleteNumber = (array) => {};
+  const addNumber = (num) => {};*/
   return (
     <ol className="keyboard">
       {keyArray.map((key) => {
