@@ -9,7 +9,7 @@ const Keyboard = ({ keyArray }) => {
         return (
           <Key
             number={key.number}
-            key={key}
+            key={key.id}
             className={"key"}
             actionOnClick={() => {}}
           ></Key>
