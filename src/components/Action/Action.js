@@ -1,8 +1,8 @@
 const Action = ({ action, actionOnClick, className }) => {
   return (
-    <a href="#" className={className} onClick={actionOnClick}>
+    <button className={className} onClick={actionOnClick}>
       {action}
-    </a>
+    </button>
   );
 };
 
