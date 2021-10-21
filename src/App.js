@@ -1,13 +1,13 @@
 import "./App.css";
-
 import Keyboard from "./components/Keyboard/Keyboard";
-
+import PhoneContext from "./components/Context/PhoneContext";
 import Actions from "./components/Actions/Actions";
 import Info from "./components/Info/Info";
 import Display from "./components/Display/Display";
+import { useState } from "react";
 
 function App() {
-  const testArray = [
+  const numbersArray = [
     { number: 0, id: 0 },
     { number: 1, id: 1 },
     { number: 2, id: 2 },
@@ -21,17 +21,30 @@ function App() {
     { number: "Delete", id: 10 },
   ];
 
+  const [phoneNumbers, setPhoneNumbers] = useState([]);
+
+  const addClickedNumber = (event) => {
+    const addNewNumber = event.target.innerText;
+    if (addNewNumber === "Delete") {
+      setPhoneNumbers([]);
+    } else if (phoneNumbers.length < 9) {
+      setPhoneNumbers([...phoneNumbers, addNewNumber]);
+    }
+  };
+
   return (
-    <div className="container">
-      <Info text={"call"}></Info>
-      <main className="phone">
-        <div className="keyboard-container">
-          <Keyboard keyArray={testArray}></Keyboard>
-        </div>
-        <Actions className={"actions"}></Actions>
-        <Display className={"number"}></Display>
-      </main>
-    </div>
+    <PhoneContext.Provider value={{ addClickedNumber, phoneNumbers }}>
+      <div className="container">
+        <Info text={"call"}></Info>
+        <main className="phone">
+          <div className="keyboard-container">
+            <Keyboard keyArray={numbersArray}></Keyboard>
+          </div>
+          <Actions className={"actions"}></Actions>
+          <Display className={"number"}></Display>
+        </main>
+      </div>
+    </PhoneContext.Provider>
   );
 }
 

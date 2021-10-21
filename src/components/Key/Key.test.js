@@ -8,7 +8,7 @@ describe("Given a Key component", () => {
         number: "1",
       };
 
-      const expectedText = "1";
+      const expectedText = text.number;
 
       render(<Key number={text.number} actionOnClick={() => {}}></Key>);
 

@@ -1,17 +1,17 @@
 import Action from "../Action/Action";
 
-const Actions = () => {
+const Actions = ({ actionOnClick }) => {
   return (
     <div className="actions">
       <Action
         className={"actions a hang"}
         action={"Hang"}
-        actionOnClick={() => {}}
+        actionOnClick={actionOnClick}
       ></Action>
       <Action
         className={"actions a call"}
         action={"Call"}
-        actionOnClick={() => {}}
+        actionOnClick={actionOnClick}
       ></Action>
     </div>
   );
