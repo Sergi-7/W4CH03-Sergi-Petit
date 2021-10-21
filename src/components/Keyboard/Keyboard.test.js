@@ -3,26 +3,25 @@ import Keyboard from "./Keyboard";
 
 describe("Given a Keyboard component", () => {
   describe("When it receives an array of numbers", () => {
-    test.skip("Then it should display a group of buttons with the number", () => {
+    test("Then it should display a group of buttons with the number", () => {
       const testArray = [
-        { number: 1 },
-        { number: 2 },
-        { number: 3 },
-        { number: 4 },
-        { number: 5 },
-        { number: 6 },
-        { number: 7 },
+        { number: 1, actionOnClick: () => {} },
+        { number: 2, actionOnClick: () => {} },
+        { number: 3, actionOnClick: () => {} },
+        { number: 4, actionOnClick: () => {} },
+        { number: 5, actionOnClick: () => {} },
+        { number: 6, actionOnClick: () => {} },
+        { number: 7, actionOnClick: () => {} },
       ];
-      const expectedLength = 7;
+      const totalWords = 7;
 
       render(
         <Keyboard keyArray={testArray} actionOnClick={() => {}}></Keyboard>
       );
 
-      screen.debug();
-      const expectedNumber = screen.getByText(expectedLength);
+      const expectedNumber = screen.getAllByTestId("test-number").length;
 
-      expect(expectedNumber).toBeInTheDocument();
+      expect(expectedNumber).toBe(totalWords);
     });
   });
 });

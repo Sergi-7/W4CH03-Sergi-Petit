@@ -8,7 +8,7 @@ describe("Given an action component", () => {
         text: "hang",
       };
 
-      const expectedText = "hang";
+      const expectedText = text.text;
 
       render(<Action action={text.text} actionOnClick={() => {}}></Action>);
 
